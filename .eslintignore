@@ -1,0 +1,6 @@
+.eslintrc.json
+next-env.d.ts
+.env
+*.config.*
+node_modules/
+.next/
