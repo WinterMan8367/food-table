@@ -44,7 +44,7 @@
         "doubleQuote": false,
         "singleQuote": true,
         "bracketSpacing": true,
-        "endOfLine": "lf",
+        "endOfLine": "crlf",
         "printWidth": 120,
         "semi": true,
         "tabWidth": 2,

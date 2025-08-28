@@ -1,5 +1,7 @@
+import { HomePage } from '@/views/home-page';
+
 const Home = () => {
-  return <div className=''>Hello world</div>;
+  return <HomePage />;
 };
 
 export default Home;
