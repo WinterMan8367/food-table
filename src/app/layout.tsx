@@ -1,16 +1,34 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import './globals.css';
+import localFont from 'next/font/local';
 import clsx from 'clsx';
+import './globals.css';
+import { ThemeProvider } from 'next-themes';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+const font = localFont({
+  adjustFontFallback: 'Arial',
+  display: 'swap',
+  src: [
+    {
+      path: '../../public/fonts/Inter-Black.ttf',
+      weight: '900',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Inter-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Inter-Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/Inter-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
 });
 
 export const metadata: Metadata = {
@@ -24,8 +42,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='ru'>
-      <body className={clsx(geistSans.variable, geistMono.variable, 'antialiased')}>{children}</body>
+    <html lang='ru' suppressHydrationWarning>
+      <body className={clsx(font.className, 'antialiased')}>
+        <ThemeProvider attribute='class' enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
